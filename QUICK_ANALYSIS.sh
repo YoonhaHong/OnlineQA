@@ -1,10 +1,10 @@
 #!/bin/bash
 
-source "$(dirname "$0")/setup.sh" #Load the setup script to set environment variables(corry path, etc.))
+source "$(dirname "$0")/setup.sh" # change to autoresolve for alignment or efficiency  #Load the setup script to set environment variables(corry path, etc.))
 #CORRY=/home/aliceits/Testbeam/corryvreckan/bin/corry
 RAW_FILE_PATH=$1
 OUTPUT_NAME=analyse_$(basename "$1" .raw)
-DETECTOR_FILE=$DETECTOR_DIR/UTA100.conf
+DETECTOR_FILE=$DETECTOR_DIR/UTA110.conf
 ALIGNED_GEOMETRY_PATH=../updated/dut_aligned.conf
 
 $CORRY -c ./configs/createmask.conf -o detectors_file=$DETECTOR_FILE -o EventLoaderEUDAQ2.file_name=$RAW_FILE_PATH -o detectors_file_updated=../updated/masked.conf 

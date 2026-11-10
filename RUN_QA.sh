@@ -5,13 +5,12 @@ RAW_FILE_PATH=$1
 OUTPUT_NAME=QA_$(basename "$1" .raw)
 #DETECTOR_FILE=$DETECTOR_DIR/ALPIDE.conf
 
-DETECTOR_FILE=$DETECTOR_DIR/UTA100.conf
+DETECTOR_FILE=$DETECTOR_DIR/top.conf
 CONFIG_FILE=./configs/QA.conf 
-#CONFIG_FILE=./configs/QA_shifttrg.conf #Shift trigger for continuous readout
 
 echo $OUTPUT_NAME
-
 $CORRY -c $CONFIG_FILE -o detectors_file=$DETECTOR_FILE \
                             -o EventLoaderEUDAQ2.file_name=$RAW_FILE_PATH\
                             -o histogram_file=$OUTPUT_NAME.root \
-                            -o OnlineMonitor.canvas_title=$OUTPUT_NAME\
+
+python3 plot_mosaix_correlations.py ./output/$OUTPUT_NAME.root -o ./output/$OUTPUT_NAME

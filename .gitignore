@@ -1,0 +1,13 @@
+.DS_Store
+.ipynb_checkpoints
+__pycache__
+*.root
+*.raw
+*.ipynb
+updated/*.conf
+!updated/
+output/*
+plots/
+!output/example_qa.png
+!output/example_telescope.png
+!output/example_analyse.jpg
